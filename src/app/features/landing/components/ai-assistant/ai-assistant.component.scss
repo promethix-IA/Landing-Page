@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+:host ::ng-deep .section-header {
+  max-width: min(820px, 100%);
+}

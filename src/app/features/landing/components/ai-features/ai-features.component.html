@@ -1,0 +1,27 @@
+<section class="section-pad bg-gradient-to-b from-surface-alt to-white" id="funciones-ia">
+  <div class="container-page">
+    <app-section-header
+      appReveal
+      eyebrow="Funciones de IA"
+      title="Inteligencia aplicada a tu operación diaria"
+      lead="Un conjunto de capacidades diseñadas para convertir datos del negocio en recomendaciones accionables."
+      align="center"
+    />
+
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      @for (feature of features; track feature.title) {
+        <article class="card-surface group p-5" appReveal>
+          <div class="mb-3 size-10 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-brand transition group-hover:scale-105 group-hover:shadow-glow"></div>
+          <h3 class="font-display text-[1.08rem] font-bold text-navy-900">{{ feature.title }}</h3>
+          <p class="mt-2 text-[0.94rem] text-muted">{{ feature.description }}</p>
+          @if (feature.example) {
+            <div class="mt-4 rounded-xl border border-brand-100 bg-brand-50/80 p-3 backdrop-blur-sm">
+              <span class="mb-1 block text-[0.72rem] font-extrabold uppercase tracking-wide text-brand-600">Ejemplo</span>
+              <em class="not-italic text-[0.9rem] text-navy-900">“{{ feature.example }}”</em>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

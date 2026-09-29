@@ -1,0 +1,33 @@
+.section-header {
+  margin-bottom: 2.5rem;
+  max-width: min(720px, 100%);
+}
+
+.section-header--center {
+  margin-inline: auto;
+  text-align: center;
+  max-width: min(780px, 100%);
+}
+
+.section-header h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(1.7rem, 3.2vw, 2.55rem);
+  color: #0b1526;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.section-header .lead {
+  margin-top: 0.85rem;
+  color: #5b6b7f;
+  font-size: 1.05rem;
+}
+
+.section-header--light h2,
+.section-header--light .eyebrow {
+  color: #fff;
+}
+
+.section-header--light .lead {
+  color: rgba(255, 255, 255, 0.75);
+}

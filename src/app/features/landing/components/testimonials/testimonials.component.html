@@ -1,0 +1,23 @@
+<section class="section-pad bg-white" id="testimonios">
+  <div class="container-page">
+    <app-section-header
+      appReveal
+      align="center"
+      eyebrow="Testimonios"
+      title="Lo que dirán los negocios que confíen en Promethixia"
+      lead="Sección preparada para testimonios reales. Los textos actuales son placeholders de diseño."
+    />
+
+    <div class="grid gap-4 md:grid-cols-3">
+      @for (item of items; track $index) {
+        <blockquote class="rounded-2xl border border-dashed border-brand-200 bg-gradient-to-br from-white to-brand-50/40 p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-lift" appReveal>
+          <p class="text-[0.98rem] leading-relaxed text-slate-600">“{{ item.quote }}”</p>
+          <footer class="mt-4 grid gap-0.5">
+            <strong class="text-navy-900">{{ item.name }}</strong>
+            <span class="text-[0.86rem] text-muted">{{ item.role }}</span>
+          </footer>
+        </blockquote>
+      }
+    </div>
+  </div>
+</section>

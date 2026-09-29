@@ -1,0 +1,26 @@
+@mixin container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+@mixin section {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+}
+
+@mixin card-surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@mixin respond-down($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

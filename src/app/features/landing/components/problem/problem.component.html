@@ -1,0 +1,35 @@
+<section class="section-pad bg-gradient-to-b from-surface-alt via-white to-brand-50/40" id="solucion">
+  <div class="container-page">
+    <app-section-header
+      appReveal
+      title="Tu negocio genera datos todos los días. Nosotros los convertimos en decisiones."
+      lead="Los negocios tradicionales pierden tiempo y oportunidades cuando la operación está fragmentada."
+      eyebrow="El problema"
+    />
+
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      @for (item of items; track item.title; let i = $index) {
+        <article
+          class="card-surface group p-5"
+          appReveal
+          [class.reveal-delay-1]="i % 4 === 0"
+          [class.reveal-delay-2]="i % 4 === 1"
+          [class.reveal-delay-3]="i % 4 === 2"
+          [class.reveal-delay-4]="i % 4 === 3"
+        >
+          <div class="mb-3.5 grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 font-extrabold text-brand-600 shadow-sm transition group-hover:shadow-glow">
+            {{ i + 1 }}
+          </div>
+          <h3 class="mb-2 font-display text-[1.02rem] font-bold text-navy-900">{{ item.title }}</h3>
+          <p class="text-[0.92rem] text-muted">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="mesh-navy mt-6 rounded-3xl p-6 text-white shadow-lift md:p-7" appReveal>
+      <p class="eyebrow text-brand-300">La solución</p>
+      <h3 class="mt-2 font-display text-[clamp(1.25rem,2.4vw,1.7rem)] font-bold">Promethixia centraliza toda la operación de tu negocio.</h3>
+      <p class="mt-2 text-white/75">Ventas, inventario, clientes, compras, facturación y análisis con IA en una sola plataforma.</p>
+    </div>
+  </div>
+</section>

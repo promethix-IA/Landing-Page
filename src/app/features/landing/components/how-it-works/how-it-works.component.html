@@ -1,0 +1,24 @@
+<section class="section-pad bg-white" id="como-funciona">
+  <div class="container-page">
+    <app-section-header
+      appReveal
+      align="center"
+      eyebrow="Cómo funciona"
+      title="De la operación diaria a decisiones inteligentes"
+      lead="Tres pasos para poner tu negocio bajo control con Promethixia."
+    />
+
+    <ol class="grid gap-4 md:grid-cols-3">
+      @for (step of steps; track step.step) {
+        <li class="card-surface relative overflow-hidden p-6" appReveal>
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-400 to-brand-700"></div>
+          <span class="mb-4 inline-flex rounded-full bg-brand-50 px-2.5 py-1 font-display text-[0.9rem] font-extrabold text-brand-600 shadow-sm">
+            {{ step.step }}
+          </span>
+          <h3 class="font-display text-[1.15rem] font-bold text-navy-900">{{ step.title }}</h3>
+          <p class="mt-2 text-muted">{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

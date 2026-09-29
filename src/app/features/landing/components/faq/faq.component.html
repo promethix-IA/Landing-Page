@@ -1,0 +1,22 @@
+<section class="section-pad bg-gradient-to-b from-surface-alt to-brand-50/40" id="faq">
+  <div class="container-page mx-auto max-w-[860px]">
+    <app-section-header
+      appReveal
+      align="center"
+      eyebrow="Preguntas frecuentes"
+      title="Respuestas claras antes de dar el siguiente paso"
+      lead="Resolvemos las dudas más comunes sobre el POS, las integraciones y la Inteligencia Artificial."
+    />
+
+    <div class="grid gap-2.5" appReveal>
+      @for (item of items; track item.question) {
+        <details class="group rounded-2xl border border-slate-200 bg-white px-4 shadow-sm transition open:shadow-soft hover:border-brand-200">
+          <summary class="relative cursor-pointer list-none py-4 pr-8 font-bold text-navy-900 marker:content-none after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:text-xl after:text-brand-600 after:content-['+'] group-open:after:content-['–'] [&::-webkit-details-marker]:hidden">
+            {{ item.question }}
+          </summary>
+          <p class="border-t border-slate-200 pb-4 pt-3 text-muted">{{ item.answer }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>

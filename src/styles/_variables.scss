@@ -1,0 +1,30 @@
+:root {
+  --brand: #1b6ef3;
+  --brand-dark: #0d4ed8;
+  --brand-soft: #e8f1ff;
+  --brand-mid: #3b82f6;
+  --navy: #0b1526;
+  --navy-soft: #132038;
+  --text: #0f1c2e;
+  --text-muted: #5b6b7f;
+  --border: #e2e8f2;
+  --surface: #ffffff;
+  --surface-alt: #f5f8fc;
+  --success: #12a35a;
+  --warning: #e7a008;
+  --danger: #e14b4b;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --shadow-sm: 0 4px 16px rgba(11, 21, 38, 0.06);
+  --shadow-md: 0 12px 40px rgba(11, 21, 38, 0.1);
+  --shadow-lg: 0 24px 60px rgba(11, 21, 38, 0.14);
+  --container: 1160px;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --header-h: 72px;
+  --grad-brand: linear-gradient(135deg, #1b6ef3 0%, #0a4cc7 100%);
+  --grad-hero: linear-gradient(160deg, #f7fbff 0%, #eaf2ff 42%, #dce9ff 100%);
+  --grad-navy: linear-gradient(145deg, #0b1526 0%, #132a4d 100%);
+}

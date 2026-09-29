@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="footer__logo" href="#inicio">
+        <span class="footer__mark" aria-hidden="true">P</span>
+        <span>{{ brand }}</span>
+      </a>
+      <p>POS/ERP inteligente para PYMEs. Centraliza ventas, inventario y operación con apoyo de Inteligencia Artificial.</p>
+      <div class="footer__social" aria-label="Redes sociales">
+        @for (item of social; track item.label) {
+          <a [href]="item.href" [attr.aria-label]="item.label">{{ item.label }}</a>
+        }
+      </div>
+    </div>
+
+    @for (column of columns; track column.title) {
+      <div>
+        <h3>{{ column.title }}</h3>
+        <ul>
+          @for (link of column.links; track link.label) {
+            <li><a [href]="link.href">{{ link.label }}</a></li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {{ year }} {{ brand }}. Todos los derechos reservados.</p>
+    <p>Landing comercial · El sistema POS se muestra a modo de demostración visual.</p>
+  </div>
+</footer>

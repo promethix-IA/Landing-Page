@@ -1,0 +1,25 @@
+<section class="section-pad bg-gradient-to-b from-brand-50/50 to-surface-alt" id="integraciones">
+  <div class="container-page">
+    <app-section-header
+      appReveal
+      eyebrow="Integraciones"
+      title="Se conecta con las herramientas que tu negocio necesita"
+      lead="Periféricos y facturación electrónica listos para acompañar el flujo del punto de venta."
+    />
+
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      @for (item of items; track item.title) {
+        <article class="card-surface p-5" appReveal>
+          <div class="mb-3 flex items-start justify-between gap-3">
+            <h3 class="font-display text-base font-bold text-navy-900">{{ item.title }}</h3>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[0.75rem] font-bold text-emerald-700">
+              <i class="status-dot" aria-hidden="true"></i>
+              {{ item.status }}
+            </span>
+          </div>
+          <p class="text-[0.9rem] text-muted">{{ item.subtitle }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
