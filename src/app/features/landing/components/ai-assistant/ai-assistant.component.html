@@ -9,7 +9,12 @@
       lead="La Inteligencia Artificial analiza la información de tu negocio para ayudarte a tomar mejores decisiones."
     />
 
-    <div class="ai__panel mx-auto max-w-[820px] overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-lift backdrop-blur-xl" appReveal role="img" aria-label="Interfaz demostrativa del asistente de IA">
+    <div
+      class="ai__panel mx-auto max-w-[820px] overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-lift backdrop-blur-xl"
+      appReveal
+      role="img"
+      aria-label="Interfaz demostrativa del asistente de IA"
+    >
       <div class="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4">
         <div>
           <strong class="block text-white">Asistente Promethixia</strong>
@@ -22,16 +27,9 @@
         @for (message of messages; track $index) {
           <div
             class="max-w-[85%] rounded-2xl px-4 py-3.5 max-sm:max-w-full"
-            [class.ml-auto]="message.role === 'user'"
-            [class.bg-brand-600]="message.role === 'user'"
-            [class.text-white]="message.role === 'user'"
-            [class.rounded-br-md]="message.role === 'user'"
-            [class.bg-white/10]="message.role === 'assistant'"
-            [class.text-blue-50]="message.role === 'assistant'"
-            [class.rounded-bl-md]="message.role === 'assistant'"
-            [class.shadow-brand]="message.role === 'user'"
-            [class.border]="message.role === 'assistant'"
-            [class.border-white/10]="message.role === 'assistant'"
+            [ngClass]="message.role === 'user'
+              ? 'ml-auto bg-brand-600 text-white rounded-br-md shadow-brand'
+              : 'bg-white/10 text-blue-50 rounded-bl-md border border-white/10'"
           >
             <span class="mb-1 block text-[0.72rem] font-bold uppercase tracking-wide opacity-70">
               {{ message.role === 'user' ? 'Tú' : 'IA' }}
