@@ -6,7 +6,7 @@
       eyebrow="El problema"
     />
 
-    <div class="grid gap-4 md:grid-cols-3">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       @for (item of items; track item.title; let i = $index) {
         <article
           class="card-surface group p-5"
@@ -30,7 +30,7 @@
         <h3 class="mt-2 font-display text-[clamp(1.25rem,2.4vw,1.7rem)] font-bold">Promethixia centraliza toda la operación de tu negocio.</h3>
         <p class="mt-2 text-white/75">Ventas, inventario, clientes, compras, facturación y análisis con IA en una sola plataforma.</p>
       </div>
-      <ul class="grid grid-cols-2 gap-x-5 gap-y-1.5 text-[0.88rem] font-semibold text-white/85">
+      <ul class="grid grid-cols-1 gap-y-1.5 text-[0.88rem] font-semibold text-white/85 min-[420px]:grid-cols-2 min-[420px]:gap-x-5">
         <li>✓ Ahorra tiempo</li>
         <li>✓ Reduce errores</li>
         <li>✓ Decide con datos</li>

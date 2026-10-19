@@ -22,6 +22,11 @@ export class NavbarComponent {
     this.scrolled = window.scrollY > 12;
   }
 
+  @HostListener('window:resize')
+  onResize(): void {
+    if (window.innerWidth > 1180) this.closeMenu();
+  }
+
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }

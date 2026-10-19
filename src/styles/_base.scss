@@ -15,6 +15,7 @@ body {
   color: var(--text);
   background: var(--surface);
   line-height: 1.6;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

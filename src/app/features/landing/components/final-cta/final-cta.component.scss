@@ -50,6 +50,17 @@
   margin-top: 1.6rem;
 }
 
+@media (max-width: 640px) {
+  .final-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .final-cta__actions .btn {
+    width: 100%;
+  }
+}
+
 .final-cta p.final-cta__trust {
   margin-top: 1.4rem;
   font-size: 0.85rem;

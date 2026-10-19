@@ -131,6 +131,14 @@
   .container-page {
     @apply mx-auto w-[min(100%-2rem,72.5rem)];
   }
+
+  .stack-actions {
+    @apply flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center;
+  }
+
+  .stack-actions .btn {
+    @apply w-full sm:w-auto;
+  }
 }
 
 @layer utilities {
