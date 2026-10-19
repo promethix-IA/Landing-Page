@@ -2,33 +2,148 @@
   <div class="container-page">
     <app-section-header
       appReveal
-      eyebrow="Módulos del POS"
+      align="center"
+      eyebrow="Funcionalidades"
       title="Todo tu negocio, desde un solo lugar"
-      lead="Cada módulo está diseñado para que la operación diaria sea más clara, rápida y conectada."
     />
 
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      @for (module of modules; track module.title) {
-        <article class="card-surface group relative flex flex-col gap-4 overflow-hidden p-5" appReveal [attr.data-accent]="module.accent">
-          <div class="pointer-events-none absolute -right-8 -top-8 size-28 rounded-full bg-brand-400/10 blur-2xl transition group-hover:bg-brand-400/20"></div>
-          <div class="relative">
-            <h3 class="font-display text-[1.15rem] font-bold text-navy-900">{{ module.title }}</h3>
-            <p class="mt-2 text-[0.94rem] text-muted">{{ module.description }}</p>
-          </div>
-          <ul class="relative grid gap-2">
-            @for (point of module.points; track point) {
-              <li class="relative pl-4 text-[0.9rem] text-slate-600 before:absolute before:left-0 before:top-[0.55rem] before:size-1.5 before:rounded-full before:bg-brand-600 before:shadow-[0_0_8px_rgba(27,110,243,0.7)] before:content-['']">
-                {{ point }}
-              </li>
-            }
-          </ul>
-          @if (module.accent === 'billing') {
-            <div class="relative mt-auto inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-2 text-[0.82rem] font-bold text-emerald-700">
-              <span class="status-dot" aria-hidden="true"></span>
-              Integración DIAN · Estado: Conectado
+    <div
+      class="mx-auto mb-6 flex w-fit max-w-full gap-1 overflow-x-auto rounded-2xl border border-slate-200 bg-surface-alt p-1.5 [scrollbar-width:none]"
+      role="tablist"
+      aria-label="Módulos de Promethixia"
+      appReveal
+    >
+      @for (module of modules; track module.id; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="shrink-0 rounded-xl px-4 py-2.5 text-[0.9rem] font-bold transition"
+          [class]="activeId() === module.id ? 'bg-white text-brand-600 shadow-soft' : 'text-muted hover:text-navy-900'"
+          [id]="'tab-' + module.id"
+          [attr.aria-selected]="activeId() === module.id"
+          [attr.aria-controls]="'panel-' + module.id"
+          [attr.tabindex]="activeId() === module.id ? 0 : -1"
+          (click)="select(module.id)"
+          (keydown)="onTabKeydown($event, i)"
+        >
+          {{ module.tab }}
+        </button>
+      }
+    </div>
+
+    <div
+      class="grid items-center gap-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-surface-alt to-brand-50/40 p-5 md:grid-cols-[0.85fr_1.15fr] md:p-8"
+      role="tabpanel"
+      [id]="'panel-' + active().id"
+      [attr.aria-labelledby]="'tab-' + active().id"
+      appReveal
+    >
+      <div>
+        <h3 class="font-display text-[clamp(1.35rem,2.4vw,1.75rem)] font-bold text-navy-900">{{ active().title }}</h3>
+        <p class="mt-3 text-muted">{{ active().description }}</p>
+        <ul class="mt-5 grid gap-2.5">
+          @for (point of active().points; track point) {
+            <li class="flex items-center gap-2.5 text-[0.95rem] font-semibold text-navy-900">
+              <span class="grid size-5 shrink-0 place-items-center rounded-full bg-brand-600 text-[0.7rem] text-white" aria-hidden="true">✓</span>
+              {{ point }}
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="min-h-[300px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-lift" role="img" [attr.aria-label]="'Vista de ejemplo: ' + active().tab">
+        @switch (active().id) {
+          @case ('dashboard') {
+            <div class="grid grid-cols-3 gap-2.5">
+              <div class="rounded-xl bg-surface-alt p-3"><span class="block text-[0.72rem] text-muted">Hoy</span><strong class="font-display text-[0.95rem]">$2.480.000</strong></div>
+              <div class="rounded-xl bg-surface-alt p-3"><span class="block text-[0.72rem] text-muted">Semana</span><strong class="font-display text-[0.95rem]">$14.920.000</strong></div>
+              <div class="rounded-xl bg-amber-50 p-3"><span class="block text-[0.72rem] text-muted">Stock bajo</span><strong class="font-display text-[0.95rem] text-amber-700">7 alertas</strong></div>
+            </div>
+            <div class="mt-4 flex h-[170px] items-end gap-2">
+              @for (bar of bars; track $index) {
+                <div class="flex-1 origin-bottom rounded-t-lg bg-gradient-to-t from-brand-700 to-brand-400 animate-bar-grow" [style.height.%]="bar" [style.animation-delay]="($index * 0.05) + 's'"></div>
+              }
+            </div>
+            <p class="mt-2 text-right text-[0.72rem] text-muted">Ventas · últimos 7 días</p>
+          }
+          @case ('pos') {
+            <div class="grid gap-4 sm:grid-cols-[1.1fr_1fr]">
+              <div>
+                <div class="rounded-xl border border-slate-200 px-3 py-2.5 text-[0.82rem] text-muted">Buscar o escanear código…</div>
+                <div class="mt-3 grid grid-cols-2 gap-2">
+                  @for (p of posProducts; track p.name) {
+                    <div class="rounded-xl border border-slate-200 p-2.5"><strong class="block text-[0.8rem]">{{ p.name }}</strong><span class="text-[0.78rem] font-bold text-brand-600">{{ format(p.price) }}</span></div>
+                  }
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <ul class="grid gap-1.5">
+                  @for (item of cart; track item.name) {
+                    <li class="flex justify-between rounded-lg bg-surface-alt px-2.5 py-2 text-[0.8rem]"><span>{{ item.qty }} × {{ item.name }}</span><strong>{{ format(item.total) }}</strong></li>
+                  }
+                </ul>
+                <div class="mt-3 flex justify-between border-t border-slate-200 pt-2 font-bold"><span>Total</span><span>{{ format(cartTotal) }}</span></div>
+                <div class="mt-auto grid gap-2 pt-3">
+                  <div class="rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 py-2.5 text-center text-[0.85rem] font-extrabold text-white shadow-brand">Finalizar venta</div>
+                </div>
+              </div>
             </div>
           }
-        </article>
+          @case ('inventory') {
+            <div class="mb-2 grid grid-cols-[1.4fr_1fr_0.6fr_0.9fr] gap-2 px-2.5 text-[0.7rem] font-bold uppercase tracking-wide text-muted">
+              <span>Producto</span><span>Categoría</span><span>Stock</span><span>Estado</span>
+            </div>
+            <ul class="grid gap-1.5">
+              @for (row of stock; track row.name) {
+                <li class="grid grid-cols-[1.4fr_1fr_0.6fr_0.9fr] items-center gap-2 rounded-lg bg-surface-alt px-2.5 py-2.5 text-[0.82rem]">
+                  <strong>{{ row.name }}</strong>
+                  <span class="text-muted">{{ row.category }}</span>
+                  <span>{{ row.qty }}</span>
+                  <span class="w-fit rounded-full px-2 py-0.5 text-[0.7rem] font-bold" [class]="row.low ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'">{{ row.low ? 'Reponer' : 'OK' }}</span>
+                </li>
+              }
+            </ul>
+            <div class="mt-4 rounded-xl border border-brand-100 bg-brand-50 p-3 text-[0.82rem] text-navy-900">
+              <strong class="text-brand-600">Sugerencia IA:</strong> pedir 24 unidades de arroz y 36 de gaseosa al proveedor habitual.
+            </div>
+          }
+          @case ('customers') {
+            <ul class="grid gap-2">
+              @for (c of customers; track c.name) {
+                <li class="flex items-center gap-3 rounded-xl bg-surface-alt p-3">
+                  <span class="grid size-9 shrink-0 place-items-center rounded-full bg-brand-100 text-[0.85rem] font-bold text-brand-700" aria-hidden="true">{{ c.name.charAt(0) }}</span>
+                  <div class="min-w-0 flex-1">
+                    <strong class="block text-[0.88rem]">{{ c.name }}</strong>
+                    <span class="text-[0.75rem] text-muted">Última compra: {{ c.last }}</span>
+                  </div>
+                  <strong class="text-[0.85rem] text-brand-600">{{ format(c.total) }}</strong>
+                </li>
+              }
+            </ul>
+          }
+          @case ('billing') {
+            <div class="mx-auto max-w-[340px] rounded-xl border border-slate-200 p-4">
+              <div class="flex items-center justify-between">
+                <strong class="font-display">Factura FE-00482</strong>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[0.72rem] font-bold text-emerald-700"><i class="status-dot" aria-hidden="true"></i>Aceptada DIAN</span>
+              </div>
+              <ul class="mt-4 grid gap-1.5 text-[0.82rem]">
+                @for (item of cart; track item.name) {
+                  <li class="flex justify-between"><span class="text-muted">{{ item.qty }} × {{ item.name }}</span><span>{{ format(item.total) }}</span></li>
+                }
+              </ul>
+              <div class="mt-3 flex justify-between border-t border-dashed border-slate-300 pt-2 font-bold"><span>Total</span><span>{{ format(cartTotal) }}</span></div>
+              <p class="mt-3 text-[0.72rem] text-muted">CUFE generado automáticamente al cobrar.</p>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.85rem] font-semibold text-muted" appReveal>
+      <span class="text-navy-900">Compatible con:</span>
+      @for (item of peripherals; track item) {
+        <span class="inline-flex items-center gap-1.5"><i class="status-dot" aria-hidden="true"></i>{{ item }}</span>
       }
     </div>
   </div>

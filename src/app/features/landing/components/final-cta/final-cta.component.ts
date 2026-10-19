@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DEMO_MAILTO } from '../../../../core/constants/landing.constants';
 import { BtnComponent } from '../../../../shared/components/btn/btn.component';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -9,4 +10,6 @@ import { RevealDirective } from '../../../../shared/directives/reveal.directive'
   templateUrl: './final-cta.component.html',
   styleUrl: './final-cta.component.scss',
 })
-export class FinalCtaComponent {}
+export class FinalCtaComponent {
+  readonly demoMailto = DEMO_MAILTO;
+}

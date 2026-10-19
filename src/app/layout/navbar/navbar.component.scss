@@ -10,14 +10,8 @@
   box-shadow: 0 10px 30px rgba(11, 21, 38, 0.08);
 }
 
-@media (max-width: 1200px) {
-  .nav__links > a:nth-child(7) {
-    display: none;
-  }
-}
-
-@media (max-width: 1080px) {
-  .nav__links > a:nth-child(n + 6) {
+@media (max-width: 1120px) {
+  .nav__links > a:nth-child(4) {
     display: none;
   }
 }

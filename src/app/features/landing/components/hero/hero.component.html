@@ -13,10 +13,17 @@
         Potencia tu negocio con Inteligencia Artificial.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <app-btn variant="primary" href="#cta-final">Solicitar demostración</app-btn>
-        <app-btn variant="secondary" href="#funcionalidades">Conocer funcionalidades</app-btn>
+        <app-btn variant="primary" [href]="demoMailto">Solicitar demostración</app-btn>
+        <app-btn variant="secondary" href="#funcionalidades">Ver funcionalidades</app-btn>
       </div>
-      <p class="mt-4 text-[0.92rem] font-semibold text-slate-500">Pensado para tiendas, restaurantes y PYMEs</p>
+      <ul class="mt-6 flex flex-wrap gap-2" aria-label="Incluye">
+        @for (chip of chips; track chip) {
+          <li class="inline-flex items-center gap-1.5 rounded-full border border-brand-100 bg-white/70 px-3 py-1.5 text-[0.8rem] font-bold text-navy-900">
+            <span class="text-brand-600" aria-hidden="true">✓</span>{{ chip }}
+          </li>
+        }
+      </ul>
+      <p class="mt-3 text-[0.85rem] font-semibold text-slate-500">Pensado para tiendas, restaurantes y PYMEs</p>
     </div>
 
     <div class="relative" appReveal>

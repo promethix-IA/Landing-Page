@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { BRAND_NAME, FOOTER_COLUMNS } from '../../core/constants/landing.constants';
+import { LogoComponent } from '../../shared/components/logo/logo.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   templateUrl: './footer.component.html',
+  imports: [LogoComponent],
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {

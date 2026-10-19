@@ -9,8 +9,9 @@
       lead="La Inteligencia Artificial analiza la información de tu negocio para ayudarte a tomar mejores decisiones."
     />
 
+    <div class="grid items-start gap-6 lg:grid-cols-[1.25fr_0.75fr]">
     <div
-      class="ai__panel mx-auto max-w-[820px] overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-lift backdrop-blur-xl"
+      class="ai__panel overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-lift backdrop-blur-xl"
       appReveal
       role="img"
       aria-label="Interfaz demostrativa del asistente de IA"
@@ -43,6 +44,16 @@
         <span>Escribe una consulta sobre tu negocio...</span>
         <strong class="rounded-[10px] bg-brand-600 px-3 py-1.5 text-[0.82rem] text-white shadow-brand">Enviar</strong>
       </div>
+    </div>
+
+    <ul class="grid gap-3">
+      @for (feature of features; track feature.title) {
+        <li class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm" appReveal>
+          <h3 class="font-display text-[1.05rem] font-bold text-white">{{ feature.title }}</h3>
+          <p class="mt-1.5 text-[0.92rem] text-white/70">{{ feature.description }}</p>
+        </li>
+      }
+    </ul>
     </div>
   </div>
 </section>

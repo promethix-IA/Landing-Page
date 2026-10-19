@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { AI_CHAT } from '../../../../core/constants/landing.constants';
+import { AI_CHAT, AI_FEATURES } from '../../../../core/constants/landing.constants';
 import { SectionHeaderComponent } from '../../../../shared/components/section-header/section-header.component';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -13,4 +13,5 @@ import { RevealDirective } from '../../../../shared/directives/reveal.directive'
 })
 export class AiAssistantComponent {
   readonly messages = AI_CHAT;
+  readonly features = AI_FEATURES;
 }
