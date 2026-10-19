@@ -1,9 +1,13 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const raw = readFileSync(new URL('../.env', import.meta.url), 'utf8');
-const env = {};
+const envPath = new URL('../.env', import.meta.url);
+const raw = existsSync(envPath) ? readFileSync(envPath, 'utf8') : '';
+const env = {
+  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? '',
+};
 
 for (const line of raw.split('\n')) {
   const trimmed = line.trim();
