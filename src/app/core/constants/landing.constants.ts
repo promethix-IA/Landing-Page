@@ -12,7 +12,7 @@ export const BRAND_NAME = 'Promethixia';
 
 export const DEMO_MAILTO = 'mailto:contacto@promethixia.com?subject=Solicitar%20demostración';
 
-export const POS_URL = 'https://promethixiapos.netlify.app/';
+export const POS_URL = 'https://pos.promethixia.com/';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Solución', href: '#solucion' },
