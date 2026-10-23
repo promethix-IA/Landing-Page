@@ -14,13 +14,13 @@
       }
       <div class="nav__mobile-actions hidden">
         <app-btn variant="secondary" [block]="true" [href]="posUrl" (click)="closeMenu()">Iniciar sesión</app-btn>
-        <app-btn variant="primary" [block]="true" [href]="demoMailto" (click)="closeMenu()">Solicitar demostración</app-btn>
+        <app-btn variant="whatsapp" [block]="true" [href]="whatsappUrl" target="_blank" (click)="closeMenu()">Prueba gratis 15 días</app-btn>
       </div>
     </nav>
 
     <div class="nav__actions ml-auto flex items-center gap-2.5">
       <app-btn variant="secondary" [href]="posUrl">Iniciar sesión</app-btn>
-      <app-btn variant="primary" [href]="demoMailto">Solicitar demostración</app-btn>
+      <app-btn variant="whatsapp" [href]="whatsappUrl" target="_blank">Prueba gratis 15 días</app-btn>
     </div>
 
     <button

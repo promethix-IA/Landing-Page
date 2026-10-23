@@ -10,7 +10,20 @@ import {
 
 export const BRAND_NAME = 'Promethixia';
 
-export const DEMO_MAILTO = 'mailto:contacto@promethixia.com?subject=Solicitar%20demostración';
+export const CONTACT_EMAIL = 'promethixia@gmail.com';
+export const CONTACT_WHATSAPP = '573207573671';
+export const CONTACT_WHATSAPP_DISPLAY = '320 757 3671';
+
+const TRIAL_MESSAGE =
+  'Hola Promethixia, quiero una prueba gratis de 15 días para mirar el software.';
+
+export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'Quiero una prueba gratis de 15 días',
+)}&body=${encodeURIComponent(
+  `${TRIAL_MESSAGE}\n\nNombre del negocio:\nCiudad:\n`,
+)}`;
+
+export const WHATSAPP_URL = `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(TRIAL_MESSAGE)}`;
 
 export const POS_URL = 'https://pos.promethixia.com/';
 
@@ -124,6 +137,10 @@ export const AI_FEATURES: AiFeature[] = [
 ];
 
 export const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: '¿Hay prueba gratis?',
+    answer: 'Sí. Tienes 15 días de prueba gratis para mirar el software. Escríbenos por WhatsApp al 320 757 3671 o al correo promethixia@gmail.com.',
+  },
   {
     question: '¿Para qué tipo de negocios está diseñado?',
     answer: 'Para tiendas, restaurantes y PYMEs que necesitan centralizar ventas, inventario, clientes y operación diaria.',

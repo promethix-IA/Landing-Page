@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { BRAND_NAME, DEMO_MAILTO, NAV_ITEMS, POS_URL } from '../../core/constants/landing.constants';
+import { BRAND_NAME, NAV_ITEMS, POS_URL, WHATSAPP_URL } from '../../core/constants/landing.constants';
 import { BtnComponent } from '../../shared/components/btn/btn.component';
 import { LogoComponent } from '../../shared/components/logo/logo.component';
 
@@ -13,7 +13,7 @@ import { LogoComponent } from '../../shared/components/logo/logo.component';
 export class NavbarComponent {
   readonly brand = BRAND_NAME;
   readonly items = NAV_ITEMS;
-  readonly demoMailto = DEMO_MAILTO;
+  readonly whatsappUrl = WHATSAPP_URL;
   readonly posUrl = POS_URL;
   menuOpen = false;
   scrolled = false;

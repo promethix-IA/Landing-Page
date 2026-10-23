@@ -9,7 +9,7 @@ Esta app **no es el sistema de ventas**. El POS está en `Sistema-Pos-Front` (`h
 - Página única en español: hero, problema, módulos, asistente IA, FAQ y CTA.
 - Navbar y footer con marca Promethixia.
 - **Iniciar sesión** abre `https://pos.promethixia.com/` (`POS_URL`).
-- **Solicitar demostración** usa `mailto:contacto@promethixia.com`.
+- **Prueba gratis 15 días** abre WhatsApp (`320 757 3671`) con un mensaje listo, o el correo `promethixia@gmail.com`.
 - SEO: meta Open Graph/Twitter, JSON-LD, `robots.txt` y `sitemap.xml` (solo la home).
 - Responsive (móvil, tablet y escritorio).
 - Tailwind v4 + tipografías Sora y Manrope.

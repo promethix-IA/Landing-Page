@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WHATSAPP_URL } from '../../core/constants/landing.constants';
 import { NavbarComponent } from '../../layout/navbar/navbar.component';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -24,4 +25,6 @@ import { FinalCtaComponent } from './components/final-cta/final-cta.component';
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
 })
-export class LandingComponent {}
+export class LandingComponent {
+  readonly whatsappUrl = WHATSAPP_URL;
+}

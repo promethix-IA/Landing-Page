@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
         [class.btn--secondary]="variant === 'secondary'"
         [class.btn--ghost]="variant === 'ghost'"
         [class.btn--light]="variant === 'light'"
+        [class.btn--whatsapp]="variant === 'whatsapp'"
         [class.btn--block]="block"
         [routerLink]="link"
       >
@@ -27,8 +28,11 @@ import { RouterLink } from '@angular/router';
         [class.btn--secondary]="variant === 'secondary'"
         [class.btn--ghost]="variant === 'ghost'"
         [class.btn--light]="variant === 'light'"
+        [class.btn--whatsapp]="variant === 'whatsapp'"
         [class.btn--block]="block"
         [href]="href || '#'"
+        [attr.target]="target || null"
+        [attr.rel]="relAttr"
         [attr.role]="href ? null : 'button'"
         (click)="onClick($event)"
       >
@@ -39,11 +43,19 @@ import { RouterLink } from '@angular/router';
   styleUrl: './btn.component.scss',
 })
 export class BtnComponent {
-  @Input() variant: 'primary' | 'secondary' | 'ghost' | 'light' = 'primary';
+  @Input() variant: 'primary' | 'secondary' | 'ghost' | 'light' | 'whatsapp' = 'primary';
   @Input() href?: string;
   /** Ruta interna de Angular. Tiene prioridad sobre href. */
   @Input() link?: string;
+  @Input() target?: string;
+  @Input() rel?: string;
   @Input() block = false;
+
+  get relAttr(): string | null {
+    if (this.rel) return this.rel;
+    if (this.target === '_blank') return 'noopener noreferrer';
+    return null;
+  }
 
   onClick(event: MouseEvent): void {
     if (!this.href) {

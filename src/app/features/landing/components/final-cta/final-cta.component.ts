@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DEMO_MAILTO } from '../../../../core/constants/landing.constants';
+import { CONTACT_EMAIL, DEMO_MAILTO, WHATSAPP_URL } from '../../../../core/constants/landing.constants';
 import { BtnComponent } from '../../../../shared/components/btn/btn.component';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -12,4 +12,6 @@ import { RevealDirective } from '../../../../shared/directives/reveal.directive'
 })
 export class FinalCtaComponent {
   readonly demoMailto = DEMO_MAILTO;
+  readonly whatsappUrl = WHATSAPP_URL;
+  readonly contactEmail = CONTACT_EMAIL;
 }

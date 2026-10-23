@@ -4,10 +4,11 @@
       <a class="footer__logo" href="#inicio">
         <app-logo tone="light" [size]="36" [textSize]="1.2" />
       </a>
-      <p>POS/ERP inteligente para PYMEs. Centraliza ventas, inventario y operación con apoyo de Inteligencia Artificial.</p>
-      <div class="footer__social" aria-label="Redes sociales">
+      <p>POS/ERP inteligente para PYMEs. Prueba gratis 15 días para mirar el software.</p>
+      <p class="footer__contact">WhatsApp {{ whatsappDisplay }} · {{ contactEmail }}</p>
+      <div class="footer__social" aria-label="Contacto">
         @for (item of social; track item.label) {
-          <a [href]="item.href" [attr.aria-label]="item.label">{{ item.label }}</a>
+          <a [href]="item.href" [attr.aria-label]="item.label" [attr.target]="item.label === 'WhatsApp' ? '_blank' : null" rel="noopener noreferrer">{{ item.label }}</a>
         }
       </div>
     </div>
